@@ -13,3 +13,31 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.idea_modules/
+
+# Kotlin
+.kotlin/
+
+# Gradle
+.gradle/
+build/
+local.properties
+captures/
+
+# Fichiers de build
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# OS Mac
+.DS_Store
+.Thumbs.db
+
+# Logs
+*.log
+
