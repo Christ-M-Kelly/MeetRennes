@@ -1,6 +1,16 @@
 package com.meetrennes.app.ui.components
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import com.meetrennes.app.ui.screens.Screen
 
 @Composable
 fun MeetRennesBottomBar(
@@ -26,11 +36,6 @@ fun MeetRennesBottomBar(
             selected = selected == 2,
             onClick = { onNav(Screen.Favorites) }
         )
-        NavigationBarItem(
-            icon = { Icon(Icons.Default.Person, contentDescription = "Profil") },
-            label = { Text("Profil") },
-            selected = selected == 3,
-            onClick = { onNav(Screen.Profile) }
-        )
+
     }
 }

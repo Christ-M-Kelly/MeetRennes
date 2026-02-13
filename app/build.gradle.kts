@@ -8,9 +8,9 @@ plugins {
 
 android {
     namespace = "com.meetrennes.app"
-    compileSdk {
-        version = release(36)
-    }
+
+    compileSdk = 36
+
 
     defaultConfig {
         applicationId = "com.meetrennes.app"
@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.androidx.navigation3.ui)
 
     implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.compose.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

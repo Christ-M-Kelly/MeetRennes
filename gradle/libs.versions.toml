@@ -16,6 +16,7 @@ navigation3Ui = "1.0.0"
 roomCommonJvm = "2.8.4"
 room = "2.8.4"
 ksp = "2.3.2"
+runtime = "1.10.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,8 +44,9 @@ androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room"}
-room-ktx = { module = "androidx-room:room-ktx", version.ref = "room"}
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room"}
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 
 [plugins]
