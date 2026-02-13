@@ -51,6 +51,12 @@ dependencies {
     implementation(libs.koin.compose.viewmodel)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.material3)
+    implementation(libs.play.services.maps)
+    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.androidx.navigation3.ui)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
