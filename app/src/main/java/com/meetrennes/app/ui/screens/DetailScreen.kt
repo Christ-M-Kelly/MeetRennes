@@ -122,8 +122,22 @@ fun DetailLieuScreen(
                 .verticalScroll(rememberScrollState())
         ) {
             // --- IMAGE PRINCIPALE ---
+            // Si l'API n'a pas d'image, on en met une par défaut selon la catégorie
+            val imageToDisplay = if (lieu.imageUrl.isNotBlank()) {
+                lieu.imageUrl
+            } else {
+                when (lieu.categorie) {
+                    com.meetrennes.app.domain.CategorieLieu.Parc -> "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Parc_du_thabor_DSC_4491.JPG/1280px-Parc_du_thabor_DSC_4491.JPG"
+                    com.meetrennes.app.domain.CategorieLieu.Musee -> "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Champs_Libres_-_Rennes.jpg/1280px-Champs_Libres_-_Rennes.jpg"
+                    com.meetrennes.app.domain.CategorieLieu.Restaurant -> "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Galette_saucisse_rennes.jpg/1280px-Galette_saucisse_rennes.jpg"
+                    com.meetrennes.app.domain.CategorieLieu.Bar -> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Rue_Saint-Michel_Rennes.JPG/800px-Rue_Saint-Michel_Rennes.JPG"
+                    com.meetrennes.app.domain.CategorieLieu.Marche -> "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Halles_centrales_de_Rennes.jpg/1280px-Halles_centrales_de_Rennes.jpg"
+                    else -> "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Rennes_-_Op%C3%A9ra.jpg/1280px-Rennes_-_Op%C3%A9ra.jpg" // Monument ou défaut
+                }
+            }
+
             AsyncImage(
-                model = lieu.imageUrl,
+                model = imageToDisplay,
                 contentDescription = lieu.nom,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

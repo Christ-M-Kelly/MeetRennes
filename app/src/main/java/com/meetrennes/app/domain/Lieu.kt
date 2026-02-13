@@ -56,7 +56,7 @@ data class Lieu(
                 adresse = "Place Saint-Mélaine, 35000 Rennes",
                 latitude = 48.1120,
                 longitude = -1.6663,
-                imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Parc_du_Thabor%2C_%C3%A0_Rennes.jpg/1280px-Parc_du_Thabor%2C_%C3%A0_Rennes.jpg"
+                imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Parc_du_thabor_DSC_4491.JPG/1280px-Parc_du_thabor_DSC_4491.JPG"
             ),
 
             Lieu(

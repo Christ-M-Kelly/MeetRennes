@@ -8,7 +8,7 @@ import com.meetrennes.app.domain.Lieu
 
 @Database(
     entities = [Lieu::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class MeetRennesDatabase : RoomDatabase() {
@@ -21,7 +21,9 @@ abstract class MeetRennesDatabase : RoomDatabase() {
                 context.applicationContext,
                 MeetRennesDatabase::class.java,
                 "meetrennes_database"
-            ).build()
+            )
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }

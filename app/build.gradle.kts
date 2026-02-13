@@ -58,6 +58,8 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.6.0")
     implementation("org.osmdroid:osmdroid-android:6.1.18")
     implementation("androidx.compose.material:material-icons-extended")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.code.gson:gson:2.11.0")
     implementation(libs.androidx.navigation3.ui)
 
     implementation(libs.androidx.room.common.jvm)

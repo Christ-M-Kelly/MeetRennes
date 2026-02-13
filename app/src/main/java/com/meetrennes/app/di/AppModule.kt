@@ -2,25 +2,39 @@ package com.meetrennes.app.di
 
 import com.meetrennes.app.data.RoomLieuRepository
 import com.meetrennes.app.data.local.MeetRennesDatabase
+import com.meetrennes.app.data.remote.OverpassService
 import com.meetrennes.app.domain.LieuRepository
 import com.meetrennes.app.presentation.LieuVM
+import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
+import java.util.concurrent.TimeUnit
+
+
 
 val appModule = module {
-    // Base de données Room — singleton (une seule instance)
+
+    // --- Base de données Room (singleton) ---
     single { MeetRennesDatabase.create(get()) }
 
-    // DAO — récupéré depuis la base de données
+    // --- DAO ---
     single { get<MeetRennesDatabase>().lieuDao() }
 
-    // Repository — implémentation Room injectée comme LieuRepository
+    // --- Client HTTP (singleton) ---
+    single {
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .build()
+    }
 
-    single<LieuRepository> { RoomLieuRepository(get()) }
+    // --- Service API Overpass ---
+    single { OverpassService(get()) }
 
+    // --- Repository : bridge entre API + Room ---
+    single<LieuRepository> { RoomLieuRepository(get(), get()) }
 
-
-    // ViewModels
+    // --- ViewModel ---
     viewModel { LieuVM(get()) }
-
 }

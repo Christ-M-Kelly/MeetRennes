@@ -5,6 +5,9 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
 import com.meetrennes.app.presentation.LieuVM
 import com.meetrennes.app.ui.screens.DetailLieuScreen
+import com.meetrennes.app.ui.screens.FavorisScreen
+import com.meetrennes.app.ui.screens.ListeLieuxScreen
+import com.meetrennes.app.ui.screens.MapScreen
 import com.meetrennes.app.ui.screens.Screen
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -16,16 +19,18 @@ fun AppNavigation(vm: LieuVM) {
         backStack = vm.backStack,
         onBack = { vm.pop() },
         entryProvider = entryProvider {
+
             // --- ACCUEIL : Liste des lieux ---
             entry<Screen.Home> {
-                /*ListeLieuxScreen(
+                ListeLieuxScreen(
                     vm = vm,
                     onEventClick = { lieu -> vm.push(Screen.LieuDetail(lieu.id)) },
                     onBottomNav = { tab -> vm.goTop(tab) }
-                )*/
+                )
             }
 
             // --- DÉTAIL D'UN LIEU ---
+
             entry<Screen.LieuDetail> { detail ->
                 DetailLieuScreen(
                     lieuId = detail.lieuId,
@@ -35,21 +40,23 @@ fun AppNavigation(vm: LieuVM) {
             }
 
             // --- CARTE ---
+
             entry<Screen.Map> {
-                /*MapScreen(
+                MapScreen(
                     vm = vm,
                     onBack = { vm.pop() },
                     onBottomNav = { tab -> vm.goTop(tab) }
-                )*/
+                )
             }
 
             // --- FAVORIS ---
+
             entry<Screen.Favorites> {
-               /* FavorisScreen(
+               FavorisScreen(
                     vm = vm,
                     onEventClick = { lieu -> vm.push(Screen.LieuDetail(lieu.id)) },
                     onBottomNav = { tab -> vm.goTop(tab) }
-                )*/
+                )
             }
 
 
